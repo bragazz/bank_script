@@ -1,0 +1,46 @@
+#!/usr/bash
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<"
+echo ">>                                                      <<"
+echo ">>                  Banco Shell Script                  <<"
+echo ">>                                                      <<"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	echo "Informe seu usuario"
+	read usuario
+	echo "                                      
+
+echo "Buscando informações..."
+wget  https://raw.githubusercontent.com/leandersonandre/shell-script/master/lista_usuarios.txt
+resultado=$(cat lista_usuarios.txt | grep -w "$user")
+
+if [ $resultado ]; then
+    echo "Usuário encontrado.\nBaixando dados do usuário..."
+    wget https://github.com/leandersonandre/shell-script/blob/master/$usuario.tar.gz?raw=true | tar -xf
+    
+    echo "Fazendo o download..."
+	echo "Download Completo
+    
+	cd $usuario.txt
+    option=0
+    
+    while [ $option -ne 3 ]; do
+        echo -e "Escolha uma opção:\n Opção 1: Ver Saldo.\n Opção 2: Ver Extrato.\n Opção 3: Sair.\n Digite a opção escolhida: "
+        read option
+        echo
+        
+        if [ $option -eq 1 ]; then
+            cat saldo.txt
+        elif [ $option -eq 2 ]; then
+            cat extrato.txt
+        elif [ $option -eq 3 ]; then
+    
+            cd ..
+            rm -r lista_usuarios.txt $user
+            echo "Saindo do bank shell..."
+        else
+            echo "Opção invalida"
+        fi
+    done
+else
+    echo "Usuário não encontrado\n"
+fi
+fi
