@@ -6,7 +6,7 @@ echo ">>                                                      <<"
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<"
 	echo "Informe seu usuario"
 	read usuario
-	echo "                                      
+	echo "                                                     "                                   
 
 	echo "Buscando informações..."
 	wget  https://raw.githubusercontent.com/leandersonandre/shell-script/master/lista_usuarios.txt
